@@ -212,9 +212,12 @@ class Game {
         switch (this.state) {
             case this.STATES.READY:
                 this.startGame();
+                //
                 break;
             case this.STATES.PLAYING:
                 this.placeBlock();
+                this.instructions.innerHTML = '';
+
                 break;
             case this.STATES.ENDED:
                 this.restartGame();
@@ -224,6 +227,7 @@ class Game {
     startGame() {
         if (this.state != this.STATES.PLAYING) {
             this.scoreContainer.innerHTML = '0';
+            //this.instructions.innerHTML = '';
             this.updateState(this.STATES.PLAYING);
             this.addBlock();
         }

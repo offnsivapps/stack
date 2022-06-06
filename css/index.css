@@ -1,110 +1,216 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-* {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-}
 
+@import url("https://fonts.googleapis.com/css?family=Comfortaa");
+html, body {
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-family: "Comfortaa", cursive;
+}
 body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
-    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
-    font-size:12px;
-    height:100vh;
-    margin:0px;
-    padding:0px;
-    /* Padding to avoid the "unsafe" areas behind notches in the screen */
-    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
-    text-transform:uppercase;
-    width:100%;
+
+	background: linear-gradient(-45deg, #003366, #cce6ffff, #ffffff, #0066cc);
+	background-size: 200% 200%;
+	animation: gradient 10s ease infinite;
+	height: 100vh;
 }
 
-/* Portrait layout (default) */
-.app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html,body{
+  height:100%;
+}
+.app{
+height:100vh;
+width:100%;
+}
+ul{
+  display:block;
+  width:100%;
+  height:inherit;
+}
+ul{
+  list-style-type:none;
+}
+li:nth-child(1)
+{
+  position:absolute;
+  left:10%;
+  height:30px;
+  width:30px;
+  background:rgba(255,255,255,.2);
+}
+li:nth-child(2)
+{
+  position:absolute;
+  left:30%;
+  height:45px;
+  width:45px;
+  background:rgba(255,255,255,.4);
+}
+li:nth-child(3)
+{
+  position:absolute;
+  left:50%;
+  height:70px;
+  width:70px;
+  background:rgba(255,255,255,.6);
+}
+li:nth-child(4)
+{
+  position:absolute;
+  left:80%;
+  height:20px;
+  width:20px;
+  background:rgba(255,255,255,.2);
+}
+li{
+  animation:animate 15s linear 1s infinite;
 }
 
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
-}
-
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
-}
-
-.event {
-    border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
-}
-
-.event.listening {
-    background-color:#333333;
-    display:block;
-}
-
-.event.received {
-    background-color:#4B946A;
-    display:none;
-}
-
-#deviceready.ready .event.listening { display: none; }
-#deviceready.ready .event.received { display: block; }
-
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
-
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+@keyframes animate{
+  from{
+    transform: translateY(+1500%) rotate(180deg)
+  }
+  to{
+    transform: translateY(-150%)
+      rotate(360deg)
+  }
 }
 
 
-@media screen and (prefers-color-scheme: dark) {
-    body {
-        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
-    }
+
+#container {
+  width: 100%;
+  height: 100%;
+}
+#container #score  {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 10vh;
+  transition: transform 0.5s ease;
+  color: #333344;
+  transform: translatey(-200px) scale(1);
+}
+#container #scoreBest  {
+
+  text-align: center;
+  font-size: 5vh;
+  transition: transform 0.5s ease;
+  color: #333344;
+  transform: translatey(-200px) scale(1);
+}
+
+
+
+#container #game {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#container .game-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#container .game-over * {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translatey(-50px);
+  color: #333344;
+}
+#container .game-over h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+}
+#container .game-ready {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#container .game-ready #start-button {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translatey(-50px);
+  border: 3px solid #333344;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #333344;
+  font-size: 30px;
+}
+
+#container .game-ready #aboutme {
+  transition: opacity 1.5s ease, transform 2.5s ease;
+  opacity: 1;
+  transform: translatey(-70px);
+  padding-top: 600px;
+
+  background-color: transparent;
+  color: #333344;
+  font-size: 2.5vh;
+}
+
+#container #instructions {
+  position: absolute;
+  width: 100%;
+  top: 16vh;
+  left: 0;
+  text-align: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+}
+#container #instructions.hide {
+  opacity: 0 !important;
+}
+#container.playing #score, #container.resetting #score {
+  transform: translatey(0px) scale(1);
+}
+#container.playing #instructions {
+  opacity: 1;
+}
+#container.ready .game-ready #start-button {
+  opacity: 1;
+  transform: translatey(0);
+}
+#container.ended #score {
+  transform: translatey(6vh) scale(1.5);
+}
+#container.ended .game-over * {
+  opacity: 1;
+  transform: translatey(0);
+}
+#container.ended .game-over p {
+  transition-delay: 0.3s;
 }

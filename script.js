@@ -372,8 +372,7 @@ class Game {
         let newBlocks = currentBlock.place();
         this.newBlocks.remove(currentBlock.mesh);
         if (newBlocks.placed)
-          var audio = new Audio('img/ding1.wav');
-           audio.play()
+
             counter = counter + 1;
             if(counter == 5 ){
                 this.aboutme.innerHTML = strings1.random()
@@ -404,6 +403,8 @@ class Game {
             TweenLite.to(newBlocks.chopped.rotation, 1, rotationParams);
         }
         this.addBlock();
+         var audio = new Audio('img/ding2.wav');
+                 audio.play()
     }
     addBlock() {
         let lastBlock = this.blocks[this.blocks.length - 1];
@@ -419,7 +420,7 @@ class Game {
         this.newBlocks.add(newKidOnTheBlock.mesh);
         this.blocks.push(newKidOnTheBlock);
         this.stage.setCamera(this.blocks.length * 2);
-        if (this.blocks.length >= 5)
+        if (this.blocks.length >= 3)
               this.instructions.classList.add('hide');
     }
     endGame() {

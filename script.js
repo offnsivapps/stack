@@ -372,6 +372,8 @@ class Game {
         let newBlocks = currentBlock.place();
         this.newBlocks.remove(currentBlock.mesh);
         if (newBlocks.placed)
+          var audio = new Audio('img/ding1.wav');
+                audio.play()
             counter = counter + 1;
             if(counter == 5 ){
                 this.aboutme.innerHTML = strings1.random()

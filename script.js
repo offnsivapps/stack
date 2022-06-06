@@ -372,7 +372,7 @@ class Game {
         let newBlocks = currentBlock.place();
         this.newBlocks.remove(currentBlock.mesh);
         if (newBlocks.placed)
-          var audio = new Audio('img/ding1.wav');
+          var audio = new Audio('img/ding2.wav');
                 audio.play()
             counter = counter + 1;
             if(counter == 5 ){

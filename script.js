@@ -403,8 +403,9 @@ class Game {
             TweenLite.to(newBlocks.chopped.rotation, 1, rotationParams);
         }
         this.addBlock();
-         var audio = new Audio('img/ding2.wav');
-                 audio.play()
+         
+	    //var audio = new Audio('img/ding2.wav');
+            //     audio.play()
     }
     addBlock() {
         let lastBlock = this.blocks[this.blocks.length - 1];
